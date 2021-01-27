@@ -5,6 +5,7 @@
     <billboard></billboard>
     <direct></direct>
     <hot-focus></hot-focus>
+    <time-deal></time-deal>
   </div>
 </template>
 
@@ -14,7 +15,7 @@ import MyHeader from "./components/MyHeader"
 import Billboard from './components/Billboard'
 import Direct from "./components/Direct";
 import HotFocus from './components/HotFocus'
-
+import TimeDeal from "./components/TimeDeal";
 
 export default {
   components: {
@@ -22,7 +23,8 @@ export default {
     MyHeader,
     Billboard,
     Direct,
-    HotFocus
+    HotFocus,
+    TimeDeal
   }
 }
 </script>
