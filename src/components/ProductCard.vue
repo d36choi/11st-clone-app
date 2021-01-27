@@ -17,13 +17,13 @@
           <span class="unit">%</span>
         </div>
         <div class="price">
-          <span class="value"> {{ product.price.value }}</span>
+          <span class="value"> {{ addComma(product.price.value) }}</span>
           <span class="unit"> {{ product.price.unit }}</span>
         </div>
         <div
           class="list-price"
           v-if="product.listPrice">
-          <span class="value"> {{ product.listPrice.value }}</span>
+          <span class="value"> {{ addComma(product.listPrice.value) }}</span>
           <span class="unit"> {{ product.listPrice.unit }}</span>
         </div>
 
@@ -81,6 +81,7 @@ export default {
     }
   },
   computed: {
+
     computedDiscountRate () {
       // computed를 통해 아래 메소드로 계산되어 리턴되 값의 출력을 진행. 할인율
       if (!this.product.listPrice) return ''
@@ -89,7 +90,8 @@ export default {
       const originalPrice = this.product.listPrice.value // 정가
       const discountRate = Math.floor(100 - (price / originalPrice) * 100)
       return discountRate // 내림
-    }
+    },
+
   },
   mounted() {
     this.loadImage()
@@ -101,7 +103,10 @@ export default {
       img.addEventListener('load', () => {
         this.imageLoading = false
       })
-    }
+    },
+    addComma (price) {
+      return numeral(price).format('0,0')
+    },
   }
 }
 

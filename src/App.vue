@@ -13,9 +13,10 @@
 import LNB from "./components/LNB"
 import MyHeader from "./components/MyHeader"
 import Billboard from './components/Billboard'
-import Direct from "./components/Direct";
+import Direct from "./components/Direct"
 import HotFocus from './components/HotFocus'
-import TimeDeal from "./components/TimeDeal";
+import TimeDeal from "./components/TimeDeal"
+import GlobalBanner from './components/GlobalBanner'
 
 export default {
   components: {
