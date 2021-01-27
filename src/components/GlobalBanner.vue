@@ -25,7 +25,7 @@
             </div>
           </div>
           <div
-            :style="getStyle"
+            :style="`background-image: url(${banner.horizontal.thumbnail});`"
             class="thumbnail"></div>
         </div>
       </a>
@@ -86,29 +86,97 @@ export default {
       background-repeat: no-repeat;
       background-size: 63px;
     }
-    a.wing-outer {
-      height: 10px;
-      width: 10px;
-      position: relative;
-    }
     a.wing {
       display: block;
+      border: 5px solid #fff;
+      border-radius: 35px;
+      box-sizing: border-box;
+      background-color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 8px 0 rgba(#000, .1);
+      &--vertical {
+        width: 70px;
+        margin-bottom: 10px;
+        padding-top: 16px;
+        &:hover {
+          .text {
+            text-decoration: underline;
+          }
+        }
+        .text {
+          font-size: 12px;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
+      &--horizontal {
+        position: absolute;
+        right: 0;
+        width: 70px;
+        height: 70px;
+        padding-left: 16px;
+        background-color: #fff;
+        overflow: hidden;
+        transition: .1s;
+        &:hover {
+          width: 160px;
+        }
+        .wing__inner {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        .text {
+          margin-right: 4px;
+          .price {
+            margin-top: 4px;
+            font-size: 11px;
+            strong {
+              font-weight: 700;
+            }
+          }
+        }
+        .thumbnail {
+          flex-shrink: 0;
+        }
+      }
+      .text {
+        font-size: 12px;
+        line-height: 1.2;
+        color: #666;
+        word-break: keep-all;
+      }
+      .thumbnail {
+        width: 60px;
+        height: 60px;
+        background-color: #333;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+      }
+
     }
-    a.wing--vertical {
-      width: 70px;
-      margin-bottom: 10px;
-      padding: 16px;
-    }
-    a.wing--horizontal {
-      position: absolute;
-      right: 0;
+    a.wing-outer {
       width: 70px;
       height: 70px;
-      padding-left: 16px;
-      background-color: #fff;
-      overflow: hidden;
-      //-webkit-transition: .1s;
-      transition: .1s;
+      margin-bottom: 12px;
+      position: relative;
+
+    }
+
+    .to-top {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      cursor: pointer;
+      background-image: url("https://trusting-williams-8cacfb.netlify.app/images/to_top_2x.png");
+      background-size: 50%;
+      //-webkit-transition: background-color .2s;
+      transition: background-color .2s;
+      &:hover {
+        background-color: #FE2431;
+      }
     }
   }
 </style>
