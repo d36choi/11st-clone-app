@@ -2,16 +2,23 @@
   <div>
     <l-n-b></l-n-b>
     <my-header></my-header>
+    <billboard></billboard>
+    <direct></direct>
   </div>
 </template>
 
 <script>
 import LNB from "./components/LNB"
 import MyHeader from "./components/MyHeader"
+import Billboard from './components/Billboard'
+import Direct from "./components/Direct";
+
 export default {
   components: {
     LNB,
-    MyHeader
+    MyHeader,
+    Billboard,
+    Direct
   }
 }
 </script>
@@ -19,13 +26,6 @@ export default {
 <style lang="scss">
   @import "./scss/main";
 
-  .container {
-    display: flex;
-    .item {
-      width: 100px;
-      height: 100px;
-      background-color: red;
-    }
-  }
+
 
 </style>
