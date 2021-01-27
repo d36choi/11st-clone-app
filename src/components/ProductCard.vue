@@ -1,6 +1,5 @@
 <template>
-  <a
-    class="product-card">
+  <a class="product-card">
     <div
       :class="{ loading: imageLoading }"
       class="thumbnail"
@@ -28,7 +27,6 @@
           <span class="unit"> {{ product.listPrice.unit }}</span>
         </div>
 
-
       </div>
       <div
         v-if="product.options.shipping"
@@ -41,20 +39,25 @@
           class="count">
           {{ product.options.count }}</div>
       </div>
-      <div class="coupons">
-        <a
-          v-for="c in product.coupons"
-          :key="c.name"
-          :href="c.href"
-          :class="{ 'no-href': !coupon.href }"
-          class="coupon">
-          <div
-            v-if="c.amount"
-            class="coupon__amount">{{ c.amount.value }}{{ a.amount.unit }}</div>
-          <div class="coupon__name">{{ c.name }}</div>
-        </a>
-      </div>
 
+
+    </div>
+    <div class="coupons">
+      <a
+        v-for="coupon in product.coupons"
+        :key="coupon.name"
+        :href="coupon.href"
+        :class="{ 'no-href': !coupon.href }"
+        class="coupon">
+        <div
+          v-if="coupon.amount"
+          class="coupon__amount">
+          {{ coupon.amount.value }}{{ coupon.amount.unit }}
+        </div>
+        <div class="coupon__name">
+          {{ coupon.name }}
+        </div>
+      </a>
     </div>
   </a>
 </template>
@@ -93,7 +96,11 @@ export default {
   },
   methods: {
     loadImage () {
-
+      const img = document.createElement('img')
+      img.src = this.product.thumbnail
+      img.addEventListener('load', () => {
+        this.imageLoading = false
+      })
     }
   }
 }
@@ -201,10 +208,51 @@ export default {
 
       }
     }
-    .coupons {
+  }
+  .coupons {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 0 20px;
+    border-top: 1px solid #f4f4f4;
+    .coupon {
       display: flex;
-      .coupon {
+      align-items: center;
+      margin-right: 12px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover .coupon__name {
+        text-decoration: underline;
+      }
+      &.no-href:hover .coupon__name {
+        text-decoration: none;
+      }
+      &__amount {
+        border: 1px solid #eeeeee;
+        border-right: none;
+        font-size: 11px;
+        color: #f43142;
+        margin-right: 6px;
+        padding: 3px 12px 3px 6px;
+        border-radius: 4px;
+        position: relative;
 
+        &::after {
+          content: "";
+          width: 8px;
+          border-radius: 0 4px 4px 0;
+          height: calc(100% + 2px);
+          background-color: #F43242;
+          position: absolute;
+          top: -1px;
+          right: 0;
+
+        }
+      }
+      &__name {
+        color: #666;
+        font-size: 13px;
       }
     }
   }
