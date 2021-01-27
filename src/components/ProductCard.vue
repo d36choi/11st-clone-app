@@ -27,25 +27,31 @@
           <span class="value"> {{ product.listPrice.value }}</span>
           <span class="unit"> {{ product.listPrice.unit }}</span>
         </div>
-        <div
-          v-if="product.options.shipping"
-          class="options">
-          <div class="free-shipping">{{ product.options.shipping }}</div>
-          <div class="accumulation"><span v-html="product.options.accumulation"></span></div>
-          <span class="flex-space"></span>
-          <div
-            v-if="product.options.count"
-            class="count">
-            {{ product.options.count }}</div>
-        </div>
 
+
+      </div>
+      <div
+        v-if="product.options.shipping"
+        class="options">
+        <div class="free-shipping">{{ product.options.shipping }}</div>
+        <div class="accumulation"><span v-html="product.options.accumulation"></span></div>
+        <span class="flex-space"></span>
+        <div
+          v-if="product.options.count"
+          class="count">
+          {{ product.options.count }}</div>
       </div>
       <div class="coupons">
         <a
-          href=""
+          v-for="c in product.coupons"
+          :key="c.name"
+          :href="c.href"
+          :class="{ 'no-href': !coupon.href }"
           class="coupon">
-          <div class="coupon__amount"></div>
-          <div class="coupon__name"></div>
+          <div
+            v-if="c.amount"
+            class="coupon__amount">{{ c.amount.value }}{{ a.amount.unit }}</div>
+          <div class="coupon__name">{{ c.name }}</div>
         </a>
       </div>
 
@@ -98,7 +104,6 @@ export default {
 <style scoped lang="scss">
 .product-card {
   display: block;
-
   width: 394px;
   height: 368px;
   border-radius: 6px;
@@ -175,10 +180,33 @@ export default {
         display: flex;
         align-items: baseline;
         color: #999;
-        text-decoration-line: line-through;
+        text-decoration: line-through;
+      }
+
+    }
+    .options {
+      display: flex;
+      font-size: 13px;
+      color: #666;
+      .shipping {
+
+      }
+      .accumulation {
+
+      }
+      .flex-space {
+        flex: 1;
+      }
+      .count {
+
       }
     }
+    .coupons {
+      display: flex;
+      .coupon {
 
+      }
+    }
   }
 }
 
