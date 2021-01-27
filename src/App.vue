@@ -6,6 +6,7 @@
     <direct></direct>
     <hot-focus></hot-focus>
     <time-deal></time-deal>
+    <global-banner></global-banner>
   </div>
 </template>
 
@@ -25,7 +26,8 @@ export default {
     Billboard,
     Direct,
     HotFocus,
-    TimeDeal
+    TimeDeal,
+    GlobalBanner
   }
 }
 </script>
