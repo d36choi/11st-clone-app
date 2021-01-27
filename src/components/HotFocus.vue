@@ -5,13 +5,13 @@
         ref="lazyLoadElement"
         class="inner">
         <h2>시선 집중</h2>
-        <!--    swiper    -->
+        <!--    swiper 시작    -->
         <div class="swiper-outer">
           <div
             ref="swiper"
             class="swiper-container">
             <div class="swiper-wrapper">
-              <!-- Slides -->
+              <!-- 슬라이드 메 -->
               <div
                 v-for="product in products"
                 :key="product.name"
@@ -59,12 +59,11 @@ export default {
       console.log(this.products)
 
       this.$nextTick(() => {
-        // https://swiperjs.com/api/
         new Swiper(this.$refs.swiper, {
-          speed: 1000,
-          spaceBetween: 29,
-          slidesPerView: 3,
-          slidesPerGroup: 3,
+          speed: 1000, // 이동 속
+          spaceBetween: 29, // 사이 공간
+          slidesPerView: 3, // 슬라이드 한개 당 보일 요소 수
+          slidesPerGroup: 3, // ?
           loop: true,
           navigation: {
             nextEl: '.hot-focus .next',
@@ -83,7 +82,6 @@ export default {
 
     .inner {
       height: 528px;
-
 
       .swiper-container {
         margin: -30px -16px;
