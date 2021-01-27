@@ -6,9 +6,13 @@
       <div class="flag"></div>
       <div class="name"></div>
       <div class="prices">
-        <div class="discount-rate">
-          <span class="value"></span>
-          <span class="unit"></span>
+        <div
+          v-if="computedDiscountRate"
+          class="discount-rate">
+          <span class="value">
+            {{ computedDiscountRate }}
+          </span>
+          <span class="unit">%</span>
         </div>
         <div class="price">
           <span class="value"></span>
@@ -58,13 +62,22 @@ export default {
     }
   },
   computed: {
-    discountRate () {
+    computedDiscountRate () {
       // computed를 통해 아래 메소드로 계산되어 리턴되 값의 출력을 진행. 할인율
       if (!this.product.listPrice) return ''
 
       const price = this.product.price.value // 할인가
       const originalPrice = this.product.listPrice.value // 정가
-      return Math.floor(100 - (price * 100 / originalPrice)) // 내림
+      const discountRate = Math.floor(100 - (price / originalPrice) * 100)
+      return discountRate // 내림
+    }
+  },
+  mounted() {
+    this.loadImage()
+  },
+  methods: {
+    loadImage () {
+
     }
   }
 }
