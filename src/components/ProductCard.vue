@@ -45,6 +45,29 @@
 import numeral from 'numeral'
 import _kebabCase from 'lodash/kebabCase'
 
+export default {
+  props: {
+    product: {
+      type: Object,
+      required: true
+    }
+  },
+  data () {
+    return {
+      imageLoading : true
+    }
+  },
+  computed: {
+    discountRate () {
+      // computed를 통해 아래 메소드로 계산되어 리턴되 값의 출력을 진행. 할인율
+      if (!this.product.listPrice) return ''
+
+      const price = this.product.price.value // 할인가
+      const originalPrice = this.product.listPrice.value // 정가
+      return Math.floor(100 - (price * 100 / originalPrice)) // 내림
+    }
+  }
+}
 
 </script>
 
