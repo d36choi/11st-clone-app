@@ -77,11 +77,20 @@ export default {
 }
 </script>
 
-<style>
-  .hot-focus {
+<style scoped lang="scss">
+  section {
     background-color: #f6f7fb;
+
     .inner {
       height: 528px;
+
+
+      .swiper-container {
+        margin: -30px -16px;
+        padding: 30px 16px;
+      }
     }
+
   }
+
 </style>
