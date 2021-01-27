@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>
+    <header :class="{fixed: isFixed}">
       <div class="inner">
         <div
           class="open-nav-drawer"
@@ -161,6 +161,20 @@ export default {
 </script>
 <style scoped lang="scss">
 header {
+  // 이게 있어야 스크롤 fixed 시에 배경이 하얀색이 됨. 기본은 투명
+  background-color: #fff;
+  &.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 97;
+    box-shadow: 0 2px 8px rgba(#000, .07);
+
+    .inner {
+      height: 80px;
+    }
+  }
   .inner{
     display: flex;
     align-items: center;
