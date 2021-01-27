@@ -1,7 +1,7 @@
 <template>
   <div
-    class="global-banner"
-    v-if="done">
+    v-if="done"
+    class="global-banner">
     <div class="ad"></div>
     <a
       :href="banner.vertical.href"
@@ -20,8 +20,8 @@
         <div class="wing__inner">
           <div class="text">
             <div class="name">{{ banner.horizontal.name }}</div>
-            <div class="price"><strong>{{ banner.horizontal.price.value }}</strong>
-              {{ banner.horizontal.price.unit }}
+            <div class="price">
+              <strong>{{ banner.horizontal.price.value }}</strong>{{ banner.horizontal.price.unit }}
             </div>
           </div>
           <div
@@ -32,7 +32,8 @@
     </div>
     <div
       class="to-top"
-      @click="toTop"></div>
+      @click="toTop">
+    </div>
   </div>
 </template>
 
@@ -76,7 +77,7 @@ export default {
     bottom: 30px;
     right: 30px;
     z-index: 97;
-    background-color: aqua;
+    //background-color: aqua;
     .ad {
       width: 34px;
       height: 18px;
@@ -85,6 +86,13 @@ export default {
       background-image: url("https://trusting-williams-8cacfb.netlify.app/images/ad_2x.png");
       background-repeat: no-repeat;
       background-size: 63px;
+    }
+    a.wing-outer {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 12px;
+      position: relative;
+
     }
     a.wing {
       display: block;
@@ -157,21 +165,20 @@ export default {
       }
 
     }
-    a.wing-outer {
-      width: 70px;
-      height: 70px;
-      margin-bottom: 12px;
-      position: relative;
 
-    }
 
     .to-top {
+      z-index: 97;
+      background-color: black;
       width: 50px;
       height: 50px;
       margin: 0 auto;
       cursor: pointer;
+      border-radius: 50%;
       background-image: url("https://trusting-williams-8cacfb.netlify.app/images/to_top_2x.png");
       background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
       //-webkit-transition: background-color .2s;
       transition: background-color .2s;
       &:hover {
