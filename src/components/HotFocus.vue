@@ -60,10 +60,10 @@ export default {
 
       this.$nextTick(() => {
         new Swiper(this.$refs.swiper, {
-          speed: 1000, // 이동 속
-          spaceBetween: 29, // 사이 공간
-          slidesPerView: 3, // 슬라이드 한개 당 보일 요소 수
-          slidesPerGroup: 3, // ?
+          speed: 1000, // 이동 속도
+          spaceBetween: 29, // 슬라이드 사이 여백입니다~
+          slidesPerView: 3, // 한 번에 보이는 슬라이드 개수입니다~
+          slidesPerGroup: 3, // 한 번에 움직이는 슬라이드 개수입니다~
           loop: true,
           navigation: {
             nextEl: '.hot-focus .next',

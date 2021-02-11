@@ -47,10 +47,10 @@
               href="javascript:void(0)">wow</a>
             <ul class="my__menu">
               <li
-                v-for="i in myMenu"
-                :key="i.name">
-                <a :href="i.href">
-                  {{ i.name }}
+                v-for="item in myMenu"
+                :key="item.name">
+                <a :href="item.href">
+                  {{ item.name }}
                 </a>
               </li>
             </ul>
@@ -186,8 +186,8 @@ header {
       border-radius: 50%;
       cursor: pointer;
       box-shadow:
-          0 2px 6px rgba(#000, .06),
-          0 0 1px rgba(#000, .4);
+        0 2px 6px rgba(#000, .06),
+        0 0 1px rgba(#000, .4);
       display:flex;
       justify-content: center;
       align-items: center;
@@ -202,6 +202,7 @@ header {
       }
     }
     .logo {
+      // Flex Item은 display: block;으로 동작합니다~
       display: block;
       width: 94px;
       height: 40px;
