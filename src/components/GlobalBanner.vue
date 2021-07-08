@@ -9,8 +9,8 @@
       <div class="wing__inner">
         <div class="text">{{ banner.vertical.name }}</div>
         <div
-          class="thumbnail"
-          :style="`background-image: url(${banner.vertical.thumbnail});`"></div>
+          :style="`background-image: url(${banner.vertical.thumbnail});`"
+          class="thumbnail"></div>
       </div>
     </a>
     <div class="wing-outer">

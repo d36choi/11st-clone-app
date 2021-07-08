@@ -2,6 +2,8 @@
   <div class="direct">
     <div class="inner">
       <ul>
+        <!--i 변수는 일반적으로 index를 의미하는 경우가 많아서,-->
+        <!--item 같은 명시적 이름이 더 권장됩니다.-->
         <li
           v-for="i in directs"
           :key="i.name">

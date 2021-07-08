@@ -23,7 +23,8 @@
           <div
             :class="{pause: isAutoplay}"
             class="autoplay"
-            @toggle="toggleAutoplay"></div>
+            @click="toggleAutoplay"></div>
+            <!--toggle 이벤트는 없어요~-->
         </div>
 
         <div class="controller">

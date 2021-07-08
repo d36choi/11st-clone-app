@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// 상대 경로보단 경로 별칭을 사용하는 것을 추천해요~
 import LNB from "./components/LNB"
 import MyHeader from "./components/MyHeader"
 import Billboard from './components/Billboard'

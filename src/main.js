@@ -9,9 +9,9 @@ import lazyLoad from "./plugins/lazyLoad";
 Vue.use(lazyLoad)
 Vue.use(searchData)
 Vue.use(fetchData)
+
 new Vue({
     el: '#app',
     store,
-    render: createElement => createElement(App),
-
+    render: createElement => createElement(App)
 })

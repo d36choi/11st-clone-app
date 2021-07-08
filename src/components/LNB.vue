@@ -41,8 +41,10 @@
             </li>
           </ul>
         </div>
-        <!--GROUP-->
-        <div class="group major-services">
+
+        <div
+          class="group major-services"
+          @mouseenter="categoryHover = -1">
           <div class="group__title">
             {{ navigations.majorServices.title }}
           </div>
@@ -59,7 +61,8 @@
         <!--GROUP-->
         <div
           ref="outlets"
-          class="group outlets">
+          class="group outlets"
+          @mouseenter="categoryHover = -1">
           <div
             class="group__title"
             @click="toggleGroup('outlets')">
